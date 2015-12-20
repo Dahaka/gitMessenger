@@ -26,7 +26,7 @@ import java.util.List;
 import dahakashow.com.messangerapp.MyGcmListenerService.Communicator1;
 
 public class ChatActivity extends AppCompatActivity {
-
+//dss
     ListView list;
     Button send;
     ArrayAdapter<String> adapter;
