@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MessangerApp.iml" filepath="$PROJECT_DIR$/MessangerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/messengerapp.iml" filepath="$PROJECT_DIR$/messengerapp.iml" />
     </modules>
   </component>
 </project>
