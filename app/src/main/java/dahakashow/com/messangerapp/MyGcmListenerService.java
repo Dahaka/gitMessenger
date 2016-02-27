@@ -32,9 +32,10 @@ public class MyGcmListenerService extends GcmListenerService {
         String fullMessage= username+":"+message;
 
         //comm.addToListview("ADDED ???");
-
-        if(!MainActivity.username123.equals(username))
-        sendNotification(message);
+SqlDB sqlDB = new SqlDB(getApplication().getBaseContext());
+        if(!sqlDB.read_username().equals(username)) {
+            sendNotification(message);
+        }
 
         Communicator comm1 = null;
         publishResults();
@@ -71,7 +72,7 @@ public class MyGcmListenerService extends GcmListenerService {
     }
 
     private void sendNotification(String message) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ChatActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);

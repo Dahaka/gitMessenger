@@ -73,11 +73,13 @@ public class SendMessageToServer extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         if (intent != null) {
+
+            SqlDB sqlDB= new SqlDB(this);
             Log.v("OnIntentSend MESSAGE", "dasdsa");
             String text = intent.getStringExtra("text");
             HashMap<String,String> hm = new HashMap<>();
             hm.put("message",text);
-            hm.put("username",MainActivity.username123);
+            hm.put("username",sqlDB.read_username());
             Log.v("text = " ,text);
 
             String response =performPostCall("http://www.dahakashow.com/TheCrowdCharger/LoginWP.php", hm);

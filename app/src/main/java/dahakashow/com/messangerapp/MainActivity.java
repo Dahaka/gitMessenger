@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 //username.getText().toString();
                 Intent i = new Intent(con, RegistrationIntentService.class);
                 i.putExtra("username", username.getText().toString());
-                username123=username.getText().toString();
+                SqlDB sqlDB = new SqlDB(MainActivity.this);
+                sqlDB.insert_username(username.getText().toString());
+                //username123=username.getText().toString();
                 //i.putExtra("password", passwordText.getText().toString());
 
                 startService(i);

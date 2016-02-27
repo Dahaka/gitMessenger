@@ -32,6 +32,7 @@ public class ChatActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ArrayList<String> listString = new ArrayList<>();;
     EditText sendText;
+    SqlDB sqlDB;
 
 
     @Override
@@ -40,7 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 
-
+        sqlDB = new SqlDB(this);
         setSupportActionBar(myToolbar);
 
         list = (ListView)findViewById(R.id.listView);
@@ -50,15 +51,7 @@ public class ChatActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
                 new IntentFilter("my-event"));
 
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
+
 
 
 
@@ -68,21 +61,6 @@ listString.add("MessengerApp:Hello From MessengerAPP :)");
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, listString);
         list.setAdapter(adapter);
-
-//        SqlDB sql = new SqlDB(this);
-//        Cursor c=sql.db.rawQuery("SELECT * FROM messages",null);
-//        if (c.getCount()==0) {
-//
-//            return;
-//        }
-//        StringBuffer buffer=new StringBuffer();
-//        listString.clear();
-//        while (c.moveToNext()) {
-//
-//            listString.add(c.getString(0));
-//
-//        }
-//        adapter.notifyDataSetChanged();
 
 
         send.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +78,7 @@ listString.add("MessengerApp:Hello From MessengerAPP :)");
             }
         });
 
-
+    adapter.notifyDataSetChanged();
 
     }
 
